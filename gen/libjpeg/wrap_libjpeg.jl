@@ -29,7 +29,3 @@ open(joinpath(@__DIR__, "$(name)_fixes.jl"), "w") do io
     write(io, "# manual fixes\n\n")
     # write(io, "JSAMPLE\n")
 end
-
-# Manually wrapping the consts, as dwf.h uses consts instead of enums
-include(joinpath("..","wrapconsts.jl"))
-wrapconsts(LIB_HEADERS[1], joinpath(@__DIR__, "$(name)_consts.jl"))

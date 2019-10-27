@@ -18,7 +18,7 @@ done
 
 ### libjpeg
 
-- `UndefVarError: JSAMPLE not defined` wrap_libjpeg.jl isn't wrapping JSAMPLE from jmorecfg.h
+- Wraps, but load fails with `UndefVarError: JSAMPLE not defined` wrap_libjpeg.jl isn't wrapping JSAMPLE from jmorecfg.h
 
 ### libpng
-- `MethodError: no method matching argtype(::CLUnexposed, ::Int64)`
+- Wrap fails with `MethodError: no method matching argtype(::CLUnexposed, ::Int64)`
