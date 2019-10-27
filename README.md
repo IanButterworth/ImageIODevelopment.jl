@@ -5,3 +5,8 @@
 [![Codecov](https://codecov.io/gh/ianshmean/ImageIO.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/ianshmean/ImageIO.jl)
 [![Coveralls](https://coveralls.io/repos/github/ianshmean/ImageIO.jl/badge.svg?branch=master)](https://coveralls.io/github/ianshmean/ImageIO.jl?branch=master)
 [![Build Status](https://api.cirrus-ci.com/github/ianshmean/ImageIO.jl.svg)](https://cirrus-ci.com/github/ianshmean/ImageIO.jl)
+
+
+# Not working - Progress
+
+- `UndefVarError: JSAMPLE not defined` wrap_libjpeg.jl isn't wrapping JSAMPLE from jmorecfg.h
