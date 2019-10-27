@@ -10,7 +10,7 @@ Libtiff_jll = "89763e89-9b03-5906-acba-b20f662cd828"
 libpng_jll = "b53b4c65-9356-5827-b1ea-8c7a1a84506f"
 
 [compat]
-julia = "1.3"
+julia = "≥ 1.3.0"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

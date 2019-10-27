@@ -1,4 +1,6 @@
-# ImageIO
+# ImageIO.jl
+
+Requires Julia 1.3+
 
 [![Build Status](https://travis-ci.com/ianshmean/ImageIO.jl.svg?branch=master)](https://travis-ci.com/ianshmean/ImageIO.jl)
 [![Build Status](https://ci.appveyor.com/api/projects/status/github/ianshmean/ImageIO.jl?svg=true)](https://ci.appveyor.com/project/ianshmean/ImageIO-jl)
