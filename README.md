@@ -11,4 +11,14 @@ Requires Julia 1.3+
 
 # Not working - Progress
 
+Wrapping Libs:
+
+### libtiff
+done
+
+### libjpeg
+
 - `UndefVarError: JSAMPLE not defined` wrap_libjpeg.jl isn't wrapping JSAMPLE from jmorecfg.h
+
+### libpng
+- `MethodError: no method matching argtype(::CLUnexposed, ::Int64)`

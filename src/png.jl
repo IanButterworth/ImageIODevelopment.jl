@@ -1,4 +1,4 @@
-module PNG
+module ModPNG
 
 using libpng_jll
 

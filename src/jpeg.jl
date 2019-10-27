@@ -1,4 +1,4 @@
-module JPEG
+module ModJPEG
 
 using JpegTurbo_jll
 

@@ -1,4 +1,4 @@
-module TIFF
+module ModTIFF
 
 using Libtiff_jll
 
@@ -8,6 +8,7 @@ using CEnum
 include(joinpath(libtiff_wrap_dir, "ctypes.jl"))
 export Ctm, Ctime_t, Cclock_t
 
+include(joinpath(libtiff_wrap_dir, "libtiff_fixes.jl"))
 include(joinpath(libtiff_wrap_dir, "libtiff_common.jl"))
 include(joinpath(libtiff_wrap_dir, "libtiff_api.jl"))
 
