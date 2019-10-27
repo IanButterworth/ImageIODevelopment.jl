@@ -14,7 +14,7 @@ Requires Julia 1.3+
 Wrapping Libs:
 
 ### libtiff
-done
+done - loads but untested
 
 ### libjpeg
 
