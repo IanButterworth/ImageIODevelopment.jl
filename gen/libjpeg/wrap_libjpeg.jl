@@ -10,6 +10,12 @@ const LIB_INCLUDE = joinpath(jllroot, "include") |> normpath
 const HEADERS = filter(x->endswith(x, ".h"), readdir(LIB_INCLUDE))
 const LIB_HEADERS = [joinpath(LIB_INCLUDE, header) for header in HEADERS]
 
+refdir = joinpath.(@__DIR__, "ref_headers")
+!isdir(refdir) && mkdir(refdir)
+refpaths = joinpath.(refdir, basename.(LIB_HEADERS))
+@show refpaths
+cp.(LIB_HEADERS, refpaths, follow_symlinks=true)
+
 @show HEADERS
 
 wc = init(; headers = LIB_HEADERS,
