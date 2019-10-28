@@ -169,6 +169,11 @@ end
 
 const MAX_COMPONENTS = 10
 
+# Skipping MacroDefinition: GETJSAMPLE ( value ) ( ( int ) ( value ) & 0xFF )
+
+const MAXJSAMPLE = 255
+const CENTERJSAMPLE = 128
+
 # Skipping MacroDefinition: GETJOCTET ( value ) ( ( value ) & 0xFF )
 
 const JPEG_MAX_DIMENSION = Int32(65500)
@@ -181,6 +186,36 @@ const JPEG_MAX_DIMENSION = Int32(65500)
 
 const FALSE = 0
 const TRUE = 1
+const RGB_RED = 0
+const RGB_GREEN = 1
+const RGB_BLUE = 2
+const RGB_PIXELSIZE = 3
+const JPEG_NUMCS = 17
+const EXT_RGB_RED = 0
+const EXT_RGB_GREEN = 1
+const EXT_RGB_BLUE = 2
+const EXT_RGB_PIXELSIZE = 3
+const EXT_RGBX_RED = 0
+const EXT_RGBX_GREEN = 1
+const EXT_RGBX_BLUE = 2
+const EXT_RGBX_PIXELSIZE = 4
+const EXT_BGR_RED = 2
+const EXT_BGR_GREEN = 1
+const EXT_BGR_BLUE = 0
+const EXT_BGR_PIXELSIZE = 3
+const EXT_BGRX_RED = 2
+const EXT_BGRX_GREEN = 1
+const EXT_BGRX_BLUE = 0
+const EXT_BGRX_PIXELSIZE = 4
+const EXT_XBGR_RED = 3
+const EXT_XBGR_GREEN = 2
+const EXT_XBGR_BLUE = 1
+const EXT_XBGR_PIXELSIZE = 4
+const EXT_XRGB_RED = 1
+const EXT_XRGB_GREEN = 2
+const EXT_XRGB_BLUE = 3
+const EXT_XRGB_PIXELSIZE = 4
+const JSAMPLE = UInt8
 const JCOEF = Int16
 const JOCTET = UInt8
 const UINT8 = Int16
@@ -287,15 +322,18 @@ struct jpeg_scan_info
     Al::Cint
 end
 
-const jpeg_saved_marker_ptr = Ptr{jpeg_marker_struct}
+#const jpeg_saved_marker_ptr = Ptr{jpeg_marker_struct}
 
 struct jpeg_marker_struct
-    next::jpeg_saved_marker_ptr
+    #next::jpeg_saved_marker_ptr
+    next::Ptr{Cvoid}
     marker::UINT8
     original_length::UInt32
     data_length::UInt32
     data::Ptr{JOCTET}
 end
+
+const jpeg_saved_marker_ptr = Ptr{jpeg_marker_struct}
 
 @cenum J_COLOR_SPACE::UInt32 begin
     JCS_UNKNOWN = 0
