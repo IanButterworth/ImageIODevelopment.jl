@@ -14,11 +14,11 @@ Requires Julia 1.3+
 Wrapping Libs:
 
 ### libtiff
-done
+done - loads but untested
 
 ### libjpeg
 
-- Wraps, but load fails with `UndefVarError: JSAMPLE not defined` wrap_libjpeg.jl isn't wrapping JSAMPLE from jmorecfg.h
+- Wraps, but load fails with `UndefVarError: JSAMPLE not defined` wrap_libjpeg.jl isn't wrapping JSAMPLE from jmorecfg.h -> Open issue: https://github.com/JuliaInterop/Clang.jl/issues/240
 
 ### libpng
-- Wrap fails with `MethodError: no method matching argtype(::CLUnexposed, ::Int64)`
+- Wrap fails with `MethodError: no method matching argtype(::CLUnexposed, ::Int64)` -> Open issue: https://github.com/JuliaInterop/Clang.jl/issues/239
