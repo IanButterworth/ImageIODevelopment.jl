@@ -15,158 +15,6 @@ const HAVE_STDLIB_H = 1
 const NEED_SYS_TYPES_H = 1
 const HAVE_UNSIGNED_CHAR = 1
 const HAVE_UNSIGNED_SHORT = 1
-
-# Skipping MacroDefinition: JMESSAGE ( code , string ) code ,
-# Skipping MacroDefinition: ERREXIT ( cinfo , code ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
-# Skipping MacroDefinition: ERREXIT1 ( cinfo , code , p1 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
-# Skipping MacroDefinition: ERREXIT2 ( cinfo , code , p1 , p2 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( cinfo ) -> err -> msg_parm . i [ 1 ] = ( p2 ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
-# Skipping MacroDefinition: ERREXIT3 ( cinfo , code , p1 , p2 , p3 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( cinfo ) -> err -> msg_parm . i [ 1 ] = ( p2 ) , ( cinfo ) -> err -> msg_parm . i [ 2 ] = ( p3 ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
-# Skipping MacroDefinition: ERREXIT4 ( cinfo , code , p1 , p2 , p3 , p4 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( cinfo ) -> err -> msg_parm . i [ 1 ] = ( p2 ) , ( cinfo ) -> err -> msg_parm . i [ 2 ] = ( p3 ) , ( cinfo ) -> err -> msg_parm . i [ 3 ] = ( p4 ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
-# Skipping MacroDefinition: ERREXITS ( cinfo , code , str ) ( ( cinfo ) -> err -> msg_code = ( code ) , strncpy ( ( cinfo ) -> err -> msg_parm . s , ( str ) , JMSG_STR_PARM_MAX ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
-# Skipping MacroDefinition: MAKESTMT ( stuff ) do { stuff } while ( 0 )
-# Skipping MacroDefinition: WARNMS ( cinfo , code ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , - 1 ) )
-# Skipping MacroDefinition: WARNMS1 ( cinfo , code , p1 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , - 1 ) )
-# Skipping MacroDefinition: WARNMS2 ( cinfo , code , p1 , p2 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( cinfo ) -> err -> msg_parm . i [ 1 ] = ( p2 ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , - 1 ) )
-# Skipping MacroDefinition: TRACEMS ( cinfo , lvl , code ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) )
-# Skipping MacroDefinition: TRACEMS1 ( cinfo , lvl , code , p1 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) )
-# Skipping MacroDefinition: TRACEMS2 ( cinfo , lvl , code , p1 , p2 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( cinfo ) -> err -> msg_parm . i [ 1 ] = ( p2 ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) )
-# Skipping MacroDefinition: TRACEMS3 ( cinfo , lvl , code , p1 , p2 , p3 ) MAKESTMT ( int * _mp = ( cinfo ) -> err -> msg_parm . i ; _mp [ 0 ] = ( p1 ) ; _mp [ 1 ] = ( p2 ) ; _mp [ 2 ] = ( p3 ) ; ( cinfo ) -> err -> msg_code = ( code ) ; ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) ; )
-# Skipping MacroDefinition: TRACEMS4 ( cinfo , lvl , code , p1 , p2 , p3 , p4 ) MAKESTMT ( int * _mp = ( cinfo ) -> err -> msg_parm . i ; _mp [ 0 ] = ( p1 ) ; _mp [ 1 ] = ( p2 ) ; _mp [ 2 ] = ( p3 ) ; _mp [ 3 ] = ( p4 ) ; ( cinfo ) -> err -> msg_code = ( code ) ; ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) ; )
-# Skipping MacroDefinition: TRACEMS5 ( cinfo , lvl , code , p1 , p2 , p3 , p4 , p5 ) MAKESTMT ( int * _mp = ( cinfo ) -> err -> msg_parm . i ; _mp [ 0 ] = ( p1 ) ; _mp [ 1 ] = ( p2 ) ; _mp [ 2 ] = ( p3 ) ; _mp [ 3 ] = ( p4 ) ; _mp [ 4 ] = ( p5 ) ; ( cinfo ) -> err -> msg_code = ( code ) ; ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) ; )
-# Skipping MacroDefinition: TRACEMS8 ( cinfo , lvl , code , p1 , p2 , p3 , p4 , p5 , p6 , p7 , p8 ) MAKESTMT ( int * _mp = ( cinfo ) -> err -> msg_parm . i ; _mp [ 0 ] = ( p1 ) ; _mp [ 1 ] = ( p2 ) ; _mp [ 2 ] = ( p3 ) ; _mp [ 3 ] = ( p4 ) ; _mp [ 4 ] = ( p5 ) ; _mp [ 5 ] = ( p6 ) ; _mp [ 6 ] = ( p7 ) ; _mp [ 7 ] = ( p8 ) ; ( cinfo ) -> err -> msg_code = ( code ) ; ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) ; )
-# Skipping MacroDefinition: TRACEMSS ( cinfo , lvl , code , str ) ( ( cinfo ) -> err -> msg_code = ( code ) , strncpy ( ( cinfo ) -> err -> msg_parm . s , ( str ) , JMSG_STR_PARM_MAX ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) )
-
-@cenum J_MESSAGE_CODE::UInt32 begin
-    JMSG_NOMESSAGE = 0
-    JERR_ARITH_NOTIMPL = 1
-    JERR_BAD_ALIGN_TYPE = 2
-    JERR_BAD_ALLOC_CHUNK = 3
-    JERR_BAD_BUFFER_MODE = 4
-    JERR_BAD_COMPONENT_ID = 5
-    JERR_BAD_DCT_COEF = 6
-    JERR_BAD_DCTSIZE = 7
-    JERR_BAD_HUFF_TABLE = 8
-    JERR_BAD_IN_COLORSPACE = 9
-    JERR_BAD_J_COLORSPACE = 10
-    JERR_BAD_LENGTH = 11
-    JERR_BAD_LIB_VERSION = 12
-    JERR_BAD_MCU_SIZE = 13
-    JERR_BAD_POOL_ID = 14
-    JERR_BAD_PRECISION = 15
-    JERR_BAD_PROGRESSION = 16
-    JERR_BAD_PROG_SCRIPT = 17
-    JERR_BAD_SAMPLING = 18
-    JERR_BAD_SCAN_SCRIPT = 19
-    JERR_BAD_STATE = 20
-    JERR_BAD_STRUCT_SIZE = 21
-    JERR_BAD_VIRTUAL_ACCESS = 22
-    JERR_BUFFER_SIZE = 23
-    JERR_CANT_SUSPEND = 24
-    JERR_CCIR601_NOTIMPL = 25
-    JERR_COMPONENT_COUNT = 26
-    JERR_CONVERSION_NOTIMPL = 27
-    JERR_DAC_INDEX = 28
-    JERR_DAC_VALUE = 29
-    JERR_DHT_INDEX = 30
-    JERR_DQT_INDEX = 31
-    JERR_EMPTY_IMAGE = 32
-    JERR_EMS_READ = 33
-    JERR_EMS_WRITE = 34
-    JERR_EOI_EXPECTED = 35
-    JERR_FILE_READ = 36
-    JERR_FILE_WRITE = 37
-    JERR_FRACT_SAMPLE_NOTIMPL = 38
-    JERR_HUFF_CLEN_OVERFLOW = 39
-    JERR_HUFF_MISSING_CODE = 40
-    JERR_IMAGE_TOO_BIG = 41
-    JERR_INPUT_EMPTY = 42
-    JERR_INPUT_EOF = 43
-    JERR_MISMATCHED_QUANT_TABLE = 44
-    JERR_MISSING_DATA = 45
-    JERR_MODE_CHANGE = 46
-    JERR_NOTIMPL = 47
-    JERR_NOT_COMPILED = 48
-    JERR_NO_BACKING_STORE = 49
-    JERR_NO_HUFF_TABLE = 50
-    JERR_NO_IMAGE = 51
-    JERR_NO_QUANT_TABLE = 52
-    JERR_NO_SOI = 53
-    JERR_OUT_OF_MEMORY = 54
-    JERR_QUANT_COMPONENTS = 55
-    JERR_QUANT_FEW_COLORS = 56
-    JERR_QUANT_MANY_COLORS = 57
-    JERR_SOF_DUPLICATE = 58
-    JERR_SOF_NO_SOS = 59
-    JERR_SOF_UNSUPPORTED = 60
-    JERR_SOI_DUPLICATE = 61
-    JERR_SOS_NO_SOF = 62
-    JERR_TFILE_CREATE = 63
-    JERR_TFILE_READ = 64
-    JERR_TFILE_SEEK = 65
-    JERR_TFILE_WRITE = 66
-    JERR_TOO_LITTLE_DATA = 67
-    JERR_UNKNOWN_MARKER = 68
-    JERR_VIRTUAL_BUG = 69
-    JERR_WIDTH_OVERFLOW = 70
-    JERR_XMS_READ = 71
-    JERR_XMS_WRITE = 72
-    JMSG_COPYRIGHT = 73
-    JMSG_VERSION = 74
-    JTRC_16BIT_TABLES = 75
-    JTRC_ADOBE = 76
-    JTRC_APP0 = 77
-    JTRC_APP14 = 78
-    JTRC_DAC = 79
-    JTRC_DHT = 80
-    JTRC_DQT = 81
-    JTRC_DRI = 82
-    JTRC_EMS_CLOSE = 83
-    JTRC_EMS_OPEN = 84
-    JTRC_EOI = 85
-    JTRC_HUFFBITS = 86
-    JTRC_JFIF = 87
-    JTRC_JFIF_BADTHUMBNAILSIZE = 88
-    JTRC_JFIF_EXTENSION = 89
-    JTRC_JFIF_THUMBNAIL = 90
-    JTRC_MISC_MARKER = 91
-    JTRC_PARMLESS_MARKER = 92
-    JTRC_QUANTVALS = 93
-    JTRC_QUANT_3_NCOLORS = 94
-    JTRC_QUANT_NCOLORS = 95
-    JTRC_QUANT_SELECTED = 96
-    JTRC_RECOVERY_ACTION = 97
-    JTRC_RST = 98
-    JTRC_SMOOTH_NOTIMPL = 99
-    JTRC_SOF = 100
-    JTRC_SOF_COMPONENT = 101
-    JTRC_SOI = 102
-    JTRC_SOS = 103
-    JTRC_SOS_COMPONENT = 104
-    JTRC_SOS_PARAMS = 105
-    JTRC_TFILE_CLOSE = 106
-    JTRC_TFILE_OPEN = 107
-    JTRC_THUMB_JPEG = 108
-    JTRC_THUMB_PALETTE = 109
-    JTRC_THUMB_RGB = 110
-    JTRC_UNKNOWN_IDS = 111
-    JTRC_XMS_CLOSE = 112
-    JTRC_XMS_OPEN = 113
-    JWRN_ADOBE_XFORM = 114
-    JWRN_BOGUS_PROGRESSION = 115
-    JWRN_EXTRANEOUS_DATA = 116
-    JWRN_HIT_MARKER = 117
-    JWRN_HUFF_BAD_CODE = 118
-    JWRN_JFIF_MAJOR = 119
-    JWRN_JPEG_EOF = 120
-    JWRN_MUST_RESYNC = 121
-    JWRN_NOT_SEQUENTIAL = 122
-    JWRN_TOO_MUCH_DATA = 123
-    JERR_BAD_CROP_SPEC = 124
-    JWRN_BOGUS_ICC = 125
-    JMSG_LASTMSGCODE = 126
-end
-
-
 const MAX_COMPONENTS = 10
 
 # Skipping MacroDefinition: GETJSAMPLE ( value ) ( ( int ) ( value ) & 0xFF )
@@ -322,18 +170,15 @@ struct jpeg_scan_info
     Al::Cint
 end
 
-#const jpeg_saved_marker_ptr = Ptr{jpeg_marker_struct}
+const jpeg_saved_marker_ptr = Ptr{jpeg_marker_struct}
 
 struct jpeg_marker_struct
-    #next::jpeg_saved_marker_ptr
-    next::Ptr{Cvoid}
+    next::jpeg_saved_marker_ptr
     marker::UINT8
     original_length::UInt32
     data_length::UInt32
     data::Ptr{JOCTET}
 end
-
-const jpeg_saved_marker_ptr = Ptr{jpeg_marker_struct}
 
 @cenum J_COLOR_SPACE::UInt32 begin
     JCS_UNKNOWN = 0
@@ -719,3 +564,154 @@ struct tjtransform
 end
 
 const tjhandle = Ptr{Cvoid}
+
+# Skipping MacroDefinition: JMESSAGE ( code , string ) code ,
+# Skipping MacroDefinition: ERREXIT ( cinfo , code ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
+# Skipping MacroDefinition: ERREXIT1 ( cinfo , code , p1 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
+# Skipping MacroDefinition: ERREXIT2 ( cinfo , code , p1 , p2 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( cinfo ) -> err -> msg_parm . i [ 1 ] = ( p2 ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
+# Skipping MacroDefinition: ERREXIT3 ( cinfo , code , p1 , p2 , p3 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( cinfo ) -> err -> msg_parm . i [ 1 ] = ( p2 ) , ( cinfo ) -> err -> msg_parm . i [ 2 ] = ( p3 ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
+# Skipping MacroDefinition: ERREXIT4 ( cinfo , code , p1 , p2 , p3 , p4 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( cinfo ) -> err -> msg_parm . i [ 1 ] = ( p2 ) , ( cinfo ) -> err -> msg_parm . i [ 2 ] = ( p3 ) , ( cinfo ) -> err -> msg_parm . i [ 3 ] = ( p4 ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
+# Skipping MacroDefinition: ERREXITS ( cinfo , code , str ) ( ( cinfo ) -> err -> msg_code = ( code ) , strncpy ( ( cinfo ) -> err -> msg_parm . s , ( str ) , JMSG_STR_PARM_MAX ) , ( * ( cinfo ) -> err -> error_exit ) ( ( j_common_ptr ) ( cinfo ) ) )
+# Skipping MacroDefinition: MAKESTMT ( stuff ) do { stuff } while ( 0 )
+# Skipping MacroDefinition: WARNMS ( cinfo , code ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , - 1 ) )
+# Skipping MacroDefinition: WARNMS1 ( cinfo , code , p1 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , - 1 ) )
+# Skipping MacroDefinition: WARNMS2 ( cinfo , code , p1 , p2 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( cinfo ) -> err -> msg_parm . i [ 1 ] = ( p2 ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , - 1 ) )
+# Skipping MacroDefinition: TRACEMS ( cinfo , lvl , code ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) )
+# Skipping MacroDefinition: TRACEMS1 ( cinfo , lvl , code , p1 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) )
+# Skipping MacroDefinition: TRACEMS2 ( cinfo , lvl , code , p1 , p2 ) ( ( cinfo ) -> err -> msg_code = ( code ) , ( cinfo ) -> err -> msg_parm . i [ 0 ] = ( p1 ) , ( cinfo ) -> err -> msg_parm . i [ 1 ] = ( p2 ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) )
+# Skipping MacroDefinition: TRACEMS3 ( cinfo , lvl , code , p1 , p2 , p3 ) MAKESTMT ( int * _mp = ( cinfo ) -> err -> msg_parm . i ; _mp [ 0 ] = ( p1 ) ; _mp [ 1 ] = ( p2 ) ; _mp [ 2 ] = ( p3 ) ; ( cinfo ) -> err -> msg_code = ( code ) ; ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) ; )
+# Skipping MacroDefinition: TRACEMS4 ( cinfo , lvl , code , p1 , p2 , p3 , p4 ) MAKESTMT ( int * _mp = ( cinfo ) -> err -> msg_parm . i ; _mp [ 0 ] = ( p1 ) ; _mp [ 1 ] = ( p2 ) ; _mp [ 2 ] = ( p3 ) ; _mp [ 3 ] = ( p4 ) ; ( cinfo ) -> err -> msg_code = ( code ) ; ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) ; )
+# Skipping MacroDefinition: TRACEMS5 ( cinfo , lvl , code , p1 , p2 , p3 , p4 , p5 ) MAKESTMT ( int * _mp = ( cinfo ) -> err -> msg_parm . i ; _mp [ 0 ] = ( p1 ) ; _mp [ 1 ] = ( p2 ) ; _mp [ 2 ] = ( p3 ) ; _mp [ 3 ] = ( p4 ) ; _mp [ 4 ] = ( p5 ) ; ( cinfo ) -> err -> msg_code = ( code ) ; ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) ; )
+# Skipping MacroDefinition: TRACEMS8 ( cinfo , lvl , code , p1 , p2 , p3 , p4 , p5 , p6 , p7 , p8 ) MAKESTMT ( int * _mp = ( cinfo ) -> err -> msg_parm . i ; _mp [ 0 ] = ( p1 ) ; _mp [ 1 ] = ( p2 ) ; _mp [ 2 ] = ( p3 ) ; _mp [ 3 ] = ( p4 ) ; _mp [ 4 ] = ( p5 ) ; _mp [ 5 ] = ( p6 ) ; _mp [ 6 ] = ( p7 ) ; _mp [ 7 ] = ( p8 ) ; ( cinfo ) -> err -> msg_code = ( code ) ; ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) ; )
+# Skipping MacroDefinition: TRACEMSS ( cinfo , lvl , code , str ) ( ( cinfo ) -> err -> msg_code = ( code ) , strncpy ( ( cinfo ) -> err -> msg_parm . s , ( str ) , JMSG_STR_PARM_MAX ) , ( * ( cinfo ) -> err -> emit_message ) ( ( j_common_ptr ) ( cinfo ) , ( lvl ) ) )
+
+@cenum J_MESSAGE_CODE::UInt32 begin
+    JMSG_NOMESSAGE = 0
+    JERR_ARITH_NOTIMPL = 1
+    JERR_BAD_ALIGN_TYPE = 2
+    JERR_BAD_ALLOC_CHUNK = 3
+    JERR_BAD_BUFFER_MODE = 4
+    JERR_BAD_COMPONENT_ID = 5
+    JERR_BAD_DCT_COEF = 6
+    JERR_BAD_DCTSIZE = 7
+    JERR_BAD_HUFF_TABLE = 8
+    JERR_BAD_IN_COLORSPACE = 9
+    JERR_BAD_J_COLORSPACE = 10
+    JERR_BAD_LENGTH = 11
+    JERR_BAD_LIB_VERSION = 12
+    JERR_BAD_MCU_SIZE = 13
+    JERR_BAD_POOL_ID = 14
+    JERR_BAD_PRECISION = 15
+    JERR_BAD_PROGRESSION = 16
+    JERR_BAD_PROG_SCRIPT = 17
+    JERR_BAD_SAMPLING = 18
+    JERR_BAD_SCAN_SCRIPT = 19
+    JERR_BAD_STATE = 20
+    JERR_BAD_STRUCT_SIZE = 21
+    JERR_BAD_VIRTUAL_ACCESS = 22
+    JERR_BUFFER_SIZE = 23
+    JERR_CANT_SUSPEND = 24
+    JERR_CCIR601_NOTIMPL = 25
+    JERR_COMPONENT_COUNT = 26
+    JERR_CONVERSION_NOTIMPL = 27
+    JERR_DAC_INDEX = 28
+    JERR_DAC_VALUE = 29
+    JERR_DHT_INDEX = 30
+    JERR_DQT_INDEX = 31
+    JERR_EMPTY_IMAGE = 32
+    JERR_EMS_READ = 33
+    JERR_EMS_WRITE = 34
+    JERR_EOI_EXPECTED = 35
+    JERR_FILE_READ = 36
+    JERR_FILE_WRITE = 37
+    JERR_FRACT_SAMPLE_NOTIMPL = 38
+    JERR_HUFF_CLEN_OVERFLOW = 39
+    JERR_HUFF_MISSING_CODE = 40
+    JERR_IMAGE_TOO_BIG = 41
+    JERR_INPUT_EMPTY = 42
+    JERR_INPUT_EOF = 43
+    JERR_MISMATCHED_QUANT_TABLE = 44
+    JERR_MISSING_DATA = 45
+    JERR_MODE_CHANGE = 46
+    JERR_NOTIMPL = 47
+    JERR_NOT_COMPILED = 48
+    JERR_NO_BACKING_STORE = 49
+    JERR_NO_HUFF_TABLE = 50
+    JERR_NO_IMAGE = 51
+    JERR_NO_QUANT_TABLE = 52
+    JERR_NO_SOI = 53
+    JERR_OUT_OF_MEMORY = 54
+    JERR_QUANT_COMPONENTS = 55
+    JERR_QUANT_FEW_COLORS = 56
+    JERR_QUANT_MANY_COLORS = 57
+    JERR_SOF_DUPLICATE = 58
+    JERR_SOF_NO_SOS = 59
+    JERR_SOF_UNSUPPORTED = 60
+    JERR_SOI_DUPLICATE = 61
+    JERR_SOS_NO_SOF = 62
+    JERR_TFILE_CREATE = 63
+    JERR_TFILE_READ = 64
+    JERR_TFILE_SEEK = 65
+    JERR_TFILE_WRITE = 66
+    JERR_TOO_LITTLE_DATA = 67
+    JERR_UNKNOWN_MARKER = 68
+    JERR_VIRTUAL_BUG = 69
+    JERR_WIDTH_OVERFLOW = 70
+    JERR_XMS_READ = 71
+    JERR_XMS_WRITE = 72
+    JMSG_COPYRIGHT = 73
+    JMSG_VERSION = 74
+    JTRC_16BIT_TABLES = 75
+    JTRC_ADOBE = 76
+    JTRC_APP0 = 77
+    JTRC_APP14 = 78
+    JTRC_DAC = 79
+    JTRC_DHT = 80
+    JTRC_DQT = 81
+    JTRC_DRI = 82
+    JTRC_EMS_CLOSE = 83
+    JTRC_EMS_OPEN = 84
+    JTRC_EOI = 85
+    JTRC_HUFFBITS = 86
+    JTRC_JFIF = 87
+    JTRC_JFIF_BADTHUMBNAILSIZE = 88
+    JTRC_JFIF_EXTENSION = 89
+    JTRC_JFIF_THUMBNAIL = 90
+    JTRC_MISC_MARKER = 91
+    JTRC_PARMLESS_MARKER = 92
+    JTRC_QUANTVALS = 93
+    JTRC_QUANT_3_NCOLORS = 94
+    JTRC_QUANT_NCOLORS = 95
+    JTRC_QUANT_SELECTED = 96
+    JTRC_RECOVERY_ACTION = 97
+    JTRC_RST = 98
+    JTRC_SMOOTH_NOTIMPL = 99
+    JTRC_SOF = 100
+    JTRC_SOF_COMPONENT = 101
+    JTRC_SOI = 102
+    JTRC_SOS = 103
+    JTRC_SOS_COMPONENT = 104
+    JTRC_SOS_PARAMS = 105
+    JTRC_TFILE_CLOSE = 106
+    JTRC_TFILE_OPEN = 107
+    JTRC_THUMB_JPEG = 108
+    JTRC_THUMB_PALETTE = 109
+    JTRC_THUMB_RGB = 110
+    JTRC_UNKNOWN_IDS = 111
+    JTRC_XMS_CLOSE = 112
+    JTRC_XMS_OPEN = 113
+    JWRN_ADOBE_XFORM = 114
+    JWRN_BOGUS_PROGRESSION = 115
+    JWRN_EXTRANEOUS_DATA = 116
+    JWRN_HIT_MARKER = 117
+    JWRN_HUFF_BAD_CODE = 118
+    JWRN_JFIF_MAJOR = 119
+    JWRN_JPEG_EOF = 120
+    JWRN_MUST_RESYNC = 121
+    JWRN_NOT_SEQUENTIAL = 122
+    JWRN_TOO_MUCH_DATA = 123
+    JERR_BAD_CROP_SPEC = 124
+    JWRN_BOGUS_ICC = 125
+    JMSG_LASTMSGCODE = 126
+end
+
