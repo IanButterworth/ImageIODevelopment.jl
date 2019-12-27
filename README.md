@@ -18,7 +18,7 @@ done - loads but untested
 
 ### libjpeg
 
-- Wraps, but load fails with `UndefVarError: JSAMPLE not defined` wrap_libjpeg.jl isn't wrapping JSAMPLE from jmorecfg.h -> Open issue: https://github.com/JuliaInterop/Clang.jl/issues/240
+done - loads but untested
 
 ### libpng
-- Wrap fails with `MethodError: no method matching argtype(::CLUnexposed, ::Int64)` -> Open issue: https://github.com/JuliaInterop/Clang.jl/issues/239
+- Wrap succeeds, but load fails with undefined `PNGCAPI`
