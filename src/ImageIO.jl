@@ -1,8 +1,9 @@
 module ImageIO
 
 include("tiff.jl")
-#include("png.jl")
 include("jpeg.jl")
+include("png.jl")
+
 
 
 end # module
