@@ -4,6 +4,9 @@
 # Julia wrapper for header: jmorecfg.h
 # Automatically generated using Clang.jl
 
+# Julia wrapper for header: jerror.h
+# Automatically generated using Clang.jl
+
 # Julia wrapper for header: jpeglib.h
 # Automatically generated using Clang.jl
 
@@ -382,6 +385,3 @@ end
 function tjGetErrorStr()
     ccall((:tjGetErrorStr, libjpeg), Cstring, ())
 end
-# Julia wrapper for header: jerror.h
-# Automatically generated using Clang.jl
-

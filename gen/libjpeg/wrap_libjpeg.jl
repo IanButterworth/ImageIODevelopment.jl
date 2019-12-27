@@ -7,8 +7,9 @@ jllroot = dirname(dirname(JpegTurbo_jll.libjpeg_path))
 
 using Clang
 const LIB_INCLUDE = joinpath(jllroot, "include") |> normpath
-#const HEADERS = filter(x->endswith(x, ".h"), readdir(LIB_INCLUDE))
-const HEADERS = ["jconfig.h", "jmorecfg.h", "jpeglib.h", "turbojpeg.h", "jerror.h"]
+# const HEADERSs = filter(x->endswith(x, ".h"), readdir(LIB_INCLUDE))
+# @show HEADERSs
+const HEADERS = ["jconfig.h", "jmorecfg.h", "jerror.h", "jpeglib.h", "turbojpeg.h"]
 const LIB_HEADERS = [joinpath(LIB_INCLUDE, header) for header in HEADERS]
 
 refdir = joinpath.(@__DIR__, "ref_headers")
@@ -22,7 +23,7 @@ wc = init(; headers = LIB_HEADERS,
             output_file = joinpath(@__DIR__, "$(libname)_api.jl"),
             common_file = joinpath(@__DIR__, "$(libname)_common.jl"),
             clang_includes = vcat(LIB_INCLUDE, CLANG_INCLUDE),
-            clang_args = ["-I", joinpath(LIB_INCLUDE, ".."), "-DJPEG_INTERNALS", "-DJPEG_INTERNAL_OPTIONS", "-DBITS_IN_JSAMPLE=8"],
+            clang_args = ["-I", joinpath(LIB_INCLUDE, ".."), "-DBITS_IN_JSAMPLE=8", "-DINCOMPLETE_TYPES_BROKEN"],
             header_wrapped = (root, current)->root == current,
             header_library = x->libname,
             clang_diagnostics = true,
