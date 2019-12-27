@@ -36,8 +36,8 @@ function png_set_compression_buffer_size(png_ptr, size)
     ccall((:png_set_compression_buffer_size, libpng), Cvoid, (png_structrp, Csize_t), png_ptr, size)
 end
 
-function png_set_longjmp_fn(png_ptr, longjmp_fn, jmp_buf_size)
-    ccall((:png_set_longjmp_fn, libpng), Ptr{jmp_buf}, (png_structrp, png_longjmp_ptr, Csize_t), png_ptr, longjmp_fn, jmp_buf_size)
+function png_set_longjmp_fn()
+    ccall((:png_set_longjmp_fn, libpng), Ptr{Cint}, ())
 end
 
 function png_longjmp(png_ptr, val)
@@ -109,7 +109,7 @@ function png_convert_from_struct_tm(ptime, ttime)
 end
 
 function png_convert_from_time_t(ptime, ttime)
-    ccall((:png_convert_from_time_t, libpng), Cvoid, (png_timep, Ctime_t), ptime, ttime)
+    ccall((:png_convert_from_time_t, libpng), Cvoid, (png_timep, Cint), ptime, ttime)
 end
 
 function png_set_expand(png_ptr)
@@ -352,9 +352,9 @@ function png_set_text_compression_method(png_ptr, method)
     ccall((:png_set_text_compression_method, libpng), Cvoid, (png_structrp, Cint), png_ptr, method)
 end
 
-function png_init_io(png_ptr, fp)
-    ccall((:png_init_io, libpng), Cvoid, (png_structrp, png_FILE_p), png_ptr, fp)
-end
+# function png_init_io(png_ptr, fp)
+#     ccall((:png_init_io, libpng), Cvoid, (png_structrp, png_FILE_p), png_ptr, fp)
+# end
 
 function png_set_error_fn(png_ptr, error_ptr, error_fn, warning_fn)
     ccall((:png_set_error_fn, libpng), Cvoid, (png_structrp, png_voidp, png_error_ptr, png_error_ptr), png_ptr, error_ptr, error_fn, warning_fn)
@@ -961,7 +961,7 @@ function png_image_begin_read_from_file(image, file_name)
 end
 
 function png_image_begin_read_from_stdio(image, file)
-    ccall((:png_image_begin_read_from_stdio, libpng), Cint, (png_imagep, Ptr{FILE}), image, file)
+    ccall((:png_image_begin_read_from_stdio, libpng), Cint, (png_imagep, Ptr{Cint}), image, file)
 end
 
 function png_image_begin_read_from_memory(image, memory, size)
@@ -981,7 +981,7 @@ function png_image_write_to_file(image, file, convert_to_8bit, buffer, row_strid
 end
 
 function png_image_write_to_stdio(image, file, convert_to_8_bit, buffer, row_stride, colormap)
-    ccall((:png_image_write_to_stdio, libpng), Cint, (png_imagep, Ptr{FILE}, Cint, Ptr{Cvoid}, png_int_32, Ptr{Cvoid}), image, file, convert_to_8_bit, buffer, row_stride, colormap)
+    ccall((:png_image_write_to_stdio, libpng), Cint, (png_imagep, Ptr{Cint}, Cint, Ptr{Cvoid}, png_int_32, Ptr{Cvoid}), image, file, convert_to_8_bit, buffer, row_stride, colormap)
 end
 
 function png_image_write_to_memory(image, memory, memory_bytes, convert_to_8_bit, buffer, row_stride, colormap)

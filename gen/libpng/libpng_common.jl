@@ -3,6 +3,7 @@
 
 # Skipping MacroDefinition: PNGARG ( arglist ) arglist
 
+const PNGCAPI = nothing
 const PNGCBAPI = PNGCAPI
 const PNGAPI = PNGCAPI
 
@@ -17,7 +18,7 @@ const PNGAPI = PNGCAPI
 # Skipping MacroDefinition: PNG_ALLOCATED __attribute__ ( ( __malloc__ ) )
 # Skipping MacroDefinition: PNG_DEPRECATED __attribute__ ( ( __deprecated__ ) )
 # Skipping MacroDefinition: PNG_PRIVATE __attribute__ ( ( __unavailable__ ( "This function is not exported by libpng." ) ) )
-# Skipping MacroDefinition: PNG_FP_EXPORT ( ordinal , type , name , args )
+# Skipping MacroDefinition: PNG_FP_EXPORT ( ordinal , type , name , args ) PNG_EXPORT ( ordinal , type , name , args ) ;
 # Skipping MacroDefinition: PNG_FIXED_EXPORT ( ordinal , type , name , args )
 
 const png_byte = Cuchar
@@ -47,6 +48,8 @@ const png_fixed_point_p = Ptr{png_fixed_point}
 const png_const_fixed_point_p = Ptr{png_fixed_point}
 const png_size_tp = Ptr{Csize_t}
 const png_const_size_tp = Ptr{Csize_t}
+const png_doublep = Ptr{Cdouble}
+const png_const_doublep = Ptr{Cdouble}
 const png_bytepp = Ptr{Ptr{png_byte}}
 const png_uint_32pp = Ptr{Ptr{png_uint_32}}
 const png_int_32pp = Ptr{Ptr{png_int_32}}
@@ -55,6 +58,7 @@ const png_int_16pp = Ptr{Ptr{png_int_16}}
 const png_const_charpp = Ptr{Cstring}
 const png_charpp = Ptr{Cstring}
 const png_fixed_point_pp = Ptr{Ptr{png_fixed_point}}
+const png_doublepp = Ptr{Ptr{Cdouble}}
 const png_charppp = Ptr{Ptr{Cstring}}
 const PNG_API_RULE = 0
 const PNG_DEFAULT_READ_MACROS = 1
@@ -120,7 +124,8 @@ const PNG_FP_HALF = 50000
 
 # Skipping MacroDefinition: PNG_FP_MAX ( ( png_fixed_point ) 0x7fffffffL )
 
-const PNG_FP_MIN = -PNG_FP_MAX
+const PNG_FP_MAX =  typemax(png_fixed_point)
+const PNG_FP_MIN = typemin(png_fixed_point)
 const PNG_COLOR_MASK_PALETTE = 1
 const PNG_COLOR_MASK_COLOR = 2
 const PNG_COLOR_MASK_ALPHA = 4
