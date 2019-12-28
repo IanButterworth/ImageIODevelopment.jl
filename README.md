@@ -1,5 +1,7 @@
 # ImageIO.jl
 
+A very WIP attempt at an Image-IO package to directly use libjpegturbo, libtiff, libpng etc. to read/write images
+
 Requires Julia 1.3+
 
 [![Build Status](https://travis-ci.com/ianshmean/ImageIO.jl.svg?branch=master)](https://travis-ci.com/ianshmean/ImageIO.jl)
