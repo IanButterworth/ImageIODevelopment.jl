@@ -22,4 +22,4 @@ done - loads and returns version
 done - loads and returns version
 
 ### libjpeg
-done - loads but ccalls to functions fail
+done - loads and returns "No error"
