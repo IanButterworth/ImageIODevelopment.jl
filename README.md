@@ -14,11 +14,10 @@ Requires Julia 1.3+
 Wrapping Libs:
 
 ### libtiff
-done - loads but untested
-
-### libjpeg
-
-done - loads but untested
+done - loads and returns version
 
 ### libpng
-- Wrap succeeds, but load fails with undefined `PNGCAPI`
+done - loads and returns version
+
+### libjpeg
+done - loads but ccalls to functions fail
