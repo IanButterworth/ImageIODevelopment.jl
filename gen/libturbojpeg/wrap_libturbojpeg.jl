@@ -1,4 +1,4 @@
-libname = "libjpeg"
+libname = "libturbojpeg"
 
 using Pkg; Pkg.add("JpegTurbo_jll")
 

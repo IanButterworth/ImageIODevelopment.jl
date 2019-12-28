@@ -11,8 +11,9 @@ using Test
     @testset "libpng" begin
         @test ImageIO.ModPNG.version() == v"1.6.37"
     end
+    
     @testset "libjpeg" begin
-        ImageIO.ModJPEG.tjGetErrorStr()
+        @test unsafe_string(ImageIO.ModJPEG.tjGetErrorStr()) == "No error"
     end
 
 end
