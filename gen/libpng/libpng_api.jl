@@ -352,9 +352,9 @@ function png_set_text_compression_method(png_ptr, method)
     ccall((:png_set_text_compression_method, libpng), Cvoid, (png_structrp, Cint), png_ptr, method)
 end
 
-# function png_init_io(png_ptr, fp)
-#     ccall((:png_init_io, libpng), Cvoid, (png_structrp, png_FILE_p), png_ptr, fp)
-# end
+function png_init_io(png_ptr, fp)
+    ccall((:png_init_io, libpng), Cvoid, (png_structrp, png_FILE_p), png_ptr, fp)
+end
 
 function png_set_error_fn(png_ptr, error_ptr, error_fn, warning_fn)
     ccall((:png_set_error_fn, libpng), Cvoid, (png_structrp, png_voidp, png_error_ptr, png_error_ptr), png_ptr, error_ptr, error_fn, warning_fn)

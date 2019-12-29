@@ -1,3 +1,7 @@
+# Manually added
+const PNG_BYTES_TO_CHECK = 8
+const png_FILE_p = Ptr{Cvoid}
+
 # Automatically generated using Clang.jl
 
 
