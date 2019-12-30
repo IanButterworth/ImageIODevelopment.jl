@@ -9,14 +9,15 @@ Requires Julia 1.3+
 [![Codecov](https://codecov.io/gh/ianshmean/ImageIO.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/ianshmean/ImageIO.jl)
 
 
-# Not working - Progress
+# Status
+Works for PNGs via the absorption of https://github.com/FugroRoames/LibPNG.jl (which may move to a seperate dep if released, and if API makes sense once this API is built out)
 
 Wrapping Libs:
 
-### libtiff
-done - loads and returns version
-
 ### libpng
+done - loads and validated with tests
+
+### libtiff
 done - loads and returns version
 
 ### libjpeg
