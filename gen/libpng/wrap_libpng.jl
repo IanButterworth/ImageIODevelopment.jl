@@ -30,6 +30,11 @@ wc = init(; headers = LIB_HEADERS,
 run(wc)
 rm(joinpath(@__DIR__, "LibTemplate.jl"))
 
-# open(joinpath(@__DIR__, "$(libname)_fixes.jl"), "w") do io
-#     write(io, "# manual fixes\n\n")
-# end
+#Manual fixes
+
+# Add to top of *_common.jl
+
+# # Manually added
+# const PNGCAPI = nothing
+# const PNG_BYTES_TO_CHECK = 8
+# const png_FILE_p = Ptr{Cvoid}

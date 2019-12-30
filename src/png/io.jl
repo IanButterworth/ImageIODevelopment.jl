@@ -22,9 +22,9 @@ function readimage(filename::String, transforms::Int = 0)
     png_ptr = create_read_struct()
     info_ptr = create_info_struct(png_ptr)
     png_init_io(png_ptr, fp)
-    png_set_sig_bytes(png_ptr)
+    png_set_sig_bytes(png_ptr, PNG_BYTES_TO_CHECK)
 
-    png_read_png(png_ptr, info_ptr, transforms)
+    png_read_png(png_ptr, info_ptr, transforms, C_NULL)
 
     width = png_get_image_width(png_ptr, info_ptr)
     height = png_get_image_height(png_ptr, info_ptr)
@@ -36,12 +36,12 @@ function readimage(filename::String, transforms::Int = 0)
         error("The color type PNG_COLOR_TYPE_PALETTE is not currently supported.")
     end
 
-    @debug "Read image info:
+    @debug """Read image info:
             width=$width,
             height=$height,
             color_type=$color_type,
             bit_depth=$bit_depth,
-            num_channels=$num_channels"
+            num_channels=$num_channels"""
 
     even_depth = ((bit_depth + 1) >> 1) << 1
     if bit_depth <= 8
@@ -54,21 +54,17 @@ function readimage(filename::String, transforms::Int = 0)
     end
 
     colors_type = map_color(color_type, T)
-
     buf = Array{colors_type}(undef, height, width)
-
     get_image_pixels!(rawview(channelview(buf)), png_ptr, info_ptr)
-
-    png_destroy_read_struct(png_ptr, info_ptr)
-
+    png_destroy_read_struct(Ref{Ptr{Cvoid}}(png_ptr), Ref{Ptr{Cvoid}}(info_ptr), C_NULL)
     close_png(fp)
-
     return buf
 end
 
 function get_image_pixels!(buf::AbstractArray{T, 2}, png_ptr::Ptr{Cvoid}, info_ptr::Ptr{Cvoid}) where T<:Unsigned
     height, width = size(buf)
-    rows = png_get_rows(png_ptr, info_ptr)
+    #rows = png_get_rows(png_ptr, info_ptr) #Wrapped version is fixed to UInt8 output!
+    rows = ccall((:png_get_rows, libpng), Ptr{Ptr{T}}, (Ptr{Cvoid}, Ptr{Cvoid}), png_ptr, info_ptr)
     for i = 1:height
         row = unsafe_load(rows, i)
         for j = 1:width
@@ -80,7 +76,8 @@ end
 
 function get_image_pixels!(buf::AbstractArray{T, 3}, png_ptr::Ptr{Cvoid}, info_ptr::Ptr{Cvoid}) where T<:Unsigned
     num_channels, height, width = size(buf)
-    rows = png_get_rows(png_ptr, info_ptr)
+    #rows = png_get_rows(png_ptr, info_ptr) #Wrapped version is fixed to UInt8 output!
+    rows = ccall((:png_get_rows, libpng), Ptr{Ptr{T}}, (Ptr{Cvoid}, Ptr{Cvoid}), png_ptr, info_ptr)
     for i = 1:height
         row = unsafe_load(rows, i)
         for j = 1:width
@@ -100,8 +97,6 @@ to_raw(A::AbstractArray{C}) where C<:Colorant  = to_raw(channelview(A))
 to_raw(A::AbstractArray{T}) where T<:Normed    = rawview(A)
 to_raw(A::AbstractArray{T}) where T<:Real      = to_raw(convert(Array{N0f8}, A))
 to_raw(A::ColorView) = channelview(A)
-
-
 
 get_bit_depth(img::AbstractArray{C}) where C<:Colorant = _get_bit_depth(eltype(C))
 get_bit_depth(img::AbstractArray{T}) where T<:Normed = _get_bit_depth(T)
@@ -140,8 +135,8 @@ function writeimage(filename::String, image::AbstractArray{T}) where T
     fp = ccall(:fopen, Ptr{Cvoid}, (Cstring, Cstring), filename, "wb")
     fp == C_NULL && error("Could not open $(filename) for writing")
 
-    png_ptr = png_create_write_struct(png_error_fn, png_warn_fn)
-    info_ptr = png_create_info_struct(png_ptr)
+    png_ptr = create_write_struct(png_error_fn, png_warn_fn)
+    info_ptr = create_info_struct(png_ptr)
     png_init_io(png_ptr, fp)
 
     image = map(map_image, image)
@@ -155,23 +150,20 @@ function writeimage(filename::String, image::AbstractArray{T}) where T
     compression_type = 0 # Set to always off
     filter_type = 0      # Set to always off
 
-    @debug "Write image info:
+    @debug """Write image info:
             width=$width,
             height=$height,
             bit_depth=$bit_depth,
             color_type=$color_type,
             interlace=$interlace,
             compression_type=$compression_type,
-            filter_type=$filter_type"
+            filter_type=$filter_type"""
 
     png_set_IHDR(png_ptr, info_ptr, width, height, bit_depth, color_type, interlace, compression_type, filter_type)
-
     png_write_info(png_ptr, info_ptr)
-
+    #png_set_swap(png_ptr)
     write_rows(buffer, png_ptr, info_ptr)
-
-    png_destroy_write_struct(png_ptr, info_ptr)
-
+    png_destroy_write_struct(Ref(png_ptr), Ref(info_ptr))
     close_png(fp)
 
     return nothing

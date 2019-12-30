@@ -1,5 +1,7 @@
 module ModPNG
 
+# Based on https://github.com/FugroRoames/LibPNG.jl
+
 using libpng_jll
 using ColorTypes
 using ImageCore

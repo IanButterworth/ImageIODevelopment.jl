@@ -10,8 +10,7 @@ using Random
 logger = ConsoleLogger(stdout, Logging.Info)
 global_logger(logger)
 
-tmpdir = joinpath(tempdir(), "ImageIO")
-
+tmpdir = joinpath(@__DIR__,"temp")
 @testset "ImageIO.jl" begin
     # Write your own tests here.
 
@@ -20,7 +19,6 @@ tmpdir = joinpath(tempdir(), "ImageIO")
     end
 
     @testset "libpng" begin
-        tmpdir = joinpath(tempdir(), "ImageIO")
         isdir(tmpdir) && rm(tmpdir, recursive = true)
         mkdir(tmpdir)
 
@@ -63,17 +61,20 @@ tmpdir = joinpath(tempdir(), "ImageIO")
         end
 
         @testset "Color - RGB" begin
-            rgb8 = rand(RGB{N0f8}, 10, 5)
+            #rgb8 = rand(RGB{N0f8}, 10, 5)
+            rgb8 = reshape(range(RGB{N0f8}(1,0,0),RGB{N0f8}(0,1,1), length=10*5), 10, 5)
             filepath = joinpath(tmpdir, "rgb_n0f8.png")
             ModPNG.writeimage(filepath, rgb8)
             r1 = ModPNG.readimage(filepath)
             @test r1 == rgb8
 
-            rgb16 = rand(RGB{N0f16}, 5, 5)
+            #rgb16 = rand(RGB{N0f16}, 10, 5)
+            rgb16 = reshape(range(RGB{N0f16}(1,0,0),RGB{N0f16}(0,1,1), length=10*5), 10, 5)
             filepath = joinpath(tmpdir, "rgb_n0f16.png")
             ModPNG.writeimage(filepath, rgb16)
-            r1 = ModPNG.readimage(filepath)
-            @test r1 ==  rgb16
+            r2 = ModPNG.readimage(filepath)
+            ModPNG.writeimage(joinpath(tmpdir, "rgb_n0f16_resave.png"), r2)
+            @test r2 == rgb16
         end
 
         @testset "Alpha" begin
@@ -106,8 +107,8 @@ tmpdir = joinpath(tempdir(), "ImageIO")
 
 end
 
-try
-    rm(tmpdir, recursive = true)
-catch
-    @error "Unable to remove temp directory at: $(tmpdir)"
-end
+# try
+#     rm(tmpdir, recursive = true)
+# catch
+#     @error "Unable to remove temp directory at: $(tmpdir)"
+# end

@@ -1,15 +1,10 @@
-function png_error_handler(::Ptr{Cvoid}, msg::Cstring)
-    error("Png error: $msg")
-end
-
-function png_warn_handler(::Ptr{Cvoid}, msg::Cstring)
-    warn("Png warn: $msg")
-end
+png_error_handler(::Ptr{Cvoid}, msg::Cstring) = error("Png error: $msg")
+png_warn_handler(::Ptr{Cvoid}, msg::Cstring) = warn("Png warn: $msg")
 const png_error_fn = @cfunction(png_error_handler, Cvoid, (Ptr{Cvoid}, Cstring))
 const png_warn_fn = @cfunction(png_warn_handler, Cvoid, (Ptr{Cvoid}, Cstring))
 
 # Returns the libpng version string
-function version()
+function get_libpng_version()
     ver = png_access_version_number()
     # Version in the format of xxyyzz, where x=major, yy=minor, z=release
     # But on the major version the first x is excluded if 0.
@@ -49,29 +44,12 @@ function create_info_struct(png_ptr)
     return info_ptr
 end
 
-png_set_sig_bytes(png_ptr::Ptr{Cvoid}) = png_set_sig_bytes(png_ptr, PNG_BYTES_TO_CHECK)
-png_read_png(png_ptr::Ptr{Cvoid}, info_ptr::Ptr{Cvoid}, transforms::Int) = png_read_png(png_ptr, info_ptr, transforms, C_NULL)
-
-function png_destroy_read_struct(png_ptr::Ptr{Cvoid}, info_ptr::Ptr{Cvoid})
-    png_ptr_ptr = Ref{Ptr{Cvoid}}(png_ptr)
-    info_ptr_ptr = Ref{Ptr{Cvoid}}(info_ptr)
-    return png_destroy_read_struct(png_ptr_ptr, info_ptr_ptr, C_NULL)
-end
-
-function close_png(fp::Ptr{Cvoid})
-    ccall(:fclose, Cint, (Ptr{Cvoid},), fp)
-end
+close_png(fp::Ptr{Cvoid}) = ccall(:fclose, Cint, (Ptr{Cvoid},), fp)
 
 # Write functions
 
-function png_create_write_struct(png_error_fn::Ptr{Cvoid}, png_warn_fn::Ptr{Cvoid})
+function create_write_struct(png_error_fn::Ptr{Cvoid}, png_warn_fn::Ptr{Cvoid})
     png_ptr = png_create_write_struct(PNG_LIBPNG_VER_STRING, C_NULL, png_error_fn, png_warn_fn)
     png_ptr == C_NULL && error("Failed to create png write struct")
     return png_ptr
-end
-
-function png_destroy_write_struct(png_ptr::Ptr{Cvoid}, info_ptr::Ptr{Cvoid})
-    png_ptr_ptr = Ref{Ptr{Cvoid}}(png_ptr)
-    info_ptr_ptr = Ref{Ptr{Cvoid}}(info_ptr)
-    return png_destroy_write_struct(png_ptr_ptr, info_ptr_ptr)
 end

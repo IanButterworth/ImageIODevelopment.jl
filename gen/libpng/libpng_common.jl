@@ -1,4 +1,5 @@
 # Manually added
+const PNGCAPI = nothing
 const PNG_BYTES_TO_CHECK = 8
 const png_FILE_p = Ptr{Cvoid}
 
@@ -7,7 +8,6 @@ const png_FILE_p = Ptr{Cvoid}
 
 # Skipping MacroDefinition: PNGARG ( arglist ) arglist
 
-const PNGCAPI = nothing
 const PNGCBAPI = PNGCAPI
 const PNGAPI = PNGCAPI
 
