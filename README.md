@@ -43,8 +43,8 @@ testimg = "/Users/ian/.julia/dev/ImageIO/test/temp/rgb_n0f8.png"
 @assert img1 == img2
 ```
 
-
 ##JPEG writing
+
 `@btime` tests
 
 |  | rand(RGB{N0f8}, 10, 20) | rand(RGB{N0f8}, 1000, 2000) | rand(RGB{N0f8}, 10000, 20000) |
