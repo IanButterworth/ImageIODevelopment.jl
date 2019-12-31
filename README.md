@@ -26,6 +26,7 @@ done - loads and returns "No error"
 
 # Benchmarking (WIP)
 
+##PNG reading
 ```julia
 using BenchmarkTools
 
@@ -41,3 +42,14 @@ testimg = "/Users/ian/.julia/dev/ImageIO/test/temp/rgb_n0f8.png"
 
 @assert img1 == img2
 ```
+
+
+##JPEG writing
+`@btime` tests
+
+|  | rand(RGB{N0f8}, 10, 20) | rand(RGB{N0f8}, 1000, 2000) | rand(RGB{N0f8}, 10000, 20000) |
+|---------------------------|-----------------------------------------|----------------------------------------|-------------------------------------|
+| ImageIO.jl - libturbojpeg | 101.484 μs (46 allocations: 2.81 KiB) | 92.338 ms (51 allocations: 5.72 MiB) | 14.329 s (51 allocations: 572.21 MiB) |
+| FileIO - QuartzImageIO.jl | 534.594 μs (198 allocations: 12.84 KiB) | 89.069 ms (201 allocations: 22.90 MiB) | 9.053 s (201 allocations: 2.24 GiB) |
+| FileIO - ImageMagick.jl | 460.599 μs (198 allocations: 12.84 KiB) | 90.524 ms (201 allocations: 22.90 MiB) | 9.378 s (201 allocations: 2.24 GiB) |
+
