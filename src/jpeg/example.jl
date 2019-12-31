@@ -30,9 +30,9 @@ function saveimage(img::AbstractArray{T,2}) where T<:Colorant
     # jpegBuf = Array{UInt8}(undef, jpegMaxSize)
     # jpegSize = jpegMaxSize
 
-    @show handle, Ref(srcBuf, 1), width, pitch, height, pixelFormat, Ref(jpegBuf), Ref(jpegSize), jpegSubsamp, jpegQual, flags
+    @show handle, srcBuf, width, pitch, height, pixelFormat, Ref(jpegBuf), Ref(jpegSize), jpegSubsamp, jpegQual, flags
 
-    tj_stat = tjCompress2(handle, Ref(srcBuf, 1), width, pitch, height, pixelFormat,
+    tj_stat = tjCompress2(handle, srcBuf, width, pitch, height, pixelFormat,
                         Ref(jpegBuf), Ref(jpegSize), jpegSubsamp, jpegQual, flags)
     if tj_stat != 0
         err = tjGetErrorStr()
@@ -52,4 +52,5 @@ function saveimage(img::AbstractArray{T,2}) where T<:Colorant
     tjFree(jpegBuf)
 end
 
-saveimage(rand(RGB{N0f8}, 4, 4))
+
+saveimage(rand(RGB{N0f8}, 10, 10))
