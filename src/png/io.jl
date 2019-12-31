@@ -63,7 +63,7 @@ end
 
 function get_image_pixels!(buf::AbstractArray{T, 2}, png_ptr::Ptr{Cvoid}, info_ptr::Ptr{Cvoid}) where T<:Unsigned
     height, width = size(buf)
-    #rows = png_get_rows(png_ptr, info_ptr) #Wrapped version is fixed to UInt8 output!
+    #rows = png_get_rows(png_ptr, info_ptr) #Clang-wrapped version is fixed to UInt8 output!
     rows = ccall((:png_get_rows, libpng), Ptr{Ptr{T}}, (Ptr{Cvoid}, Ptr{Cvoid}), png_ptr, info_ptr)
     for i = 1:height
         row = unsafe_load(rows, i)
@@ -76,7 +76,7 @@ end
 
 function get_image_pixels!(buf::AbstractArray{T, 3}, png_ptr::Ptr{Cvoid}, info_ptr::Ptr{Cvoid}) where T<:Unsigned
     num_channels, height, width = size(buf)
-    #rows = png_get_rows(png_ptr, info_ptr) #Wrapped version is fixed to UInt8 output!
+    #rows = png_get_rows(png_ptr, info_ptr) #Clang-wrapped version is fixed to UInt8 output!
     rows = ccall((:png_get_rows, libpng), Ptr{Ptr{T}}, (Ptr{Cvoid}, Ptr{Cvoid}), png_ptr, info_ptr)
     for i = 1:height
         row = unsafe_load(rows, i)

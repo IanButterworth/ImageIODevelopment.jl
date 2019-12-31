@@ -47,7 +47,6 @@ end
 close_png(fp::Ptr{Cvoid}) = ccall(:fclose, Cint, (Ptr{Cvoid},), fp)
 
 # Write functions
-
 function create_write_struct(png_error_fn::Ptr{Cvoid}, png_warn_fn::Ptr{Cvoid})
     png_ptr = png_create_write_struct(PNG_LIBPNG_VER_STRING, C_NULL, png_error_fn, png_warn_fn)
     png_ptr == C_NULL && error("Failed to create png write struct")
