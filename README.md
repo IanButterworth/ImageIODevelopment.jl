@@ -26,7 +26,7 @@ done - loads and returns "No error"
 
 # Benchmarking (WIP)
 
-##PNG reading
+## PNG reading
 ```julia
 using BenchmarkTools
 
@@ -43,7 +43,7 @@ testimg = "/Users/ian/.julia/dev/ImageIO/test/temp/rgb_n0f8.png"
 @assert img1 == img2
 ```
 
-##JPEG writing
+## JPEG writing
 
 `@btime` tests
 
